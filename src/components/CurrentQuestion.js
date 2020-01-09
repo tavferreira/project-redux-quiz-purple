@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { quiz } from 'reducers/quiz'
 import { Progress } from 'components/Progress'
+import { Options } from 'components/Options'
 
 
 export const CurrentQuestion = () => {
@@ -21,9 +22,7 @@ export const CurrentQuestion = () => {
       <div>
         <h1>Question: {question.questionText}</h1>
         <img src={question.image} />
-        {question.options.map((option, index) => (
-          <button className={question.correctAnswerIndex === index && answer.length !== currentIndex ? "correctOption" : "options"} type="button" disabled={answer.length !== currentIndex} onClick={() => (dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index })))}>{option}</button>
-        ))}
+        <Options />
         <div>
           <button type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>Next question</button>
         </div>
