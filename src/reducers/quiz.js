@@ -2,14 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', image: './assets/mockup.jpg', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
+  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', image: './assets/mockup.jpg', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
 ]
 
 const initialState = {
   questions,
   answers: [],
-  currentQuesionIndex: 0,
+  currentQuestionIndex: 0,
   quizOver: false
 }
 
@@ -62,10 +62,10 @@ export const quiz = createSlice({
      * This action does not require a payload.
      */
     goToNextQuestion: (state) => {
-      if (state.currentQuesionIndex + 1 === state.questions.length) {
+      if (state.currentQuestionIndex + 1 === state.questions.length) {
         state.quizOver = true
       } else {
-        state.currentQuesionIndex += 1
+        state.currentQuestionIndex += 1
       }
     },
 
