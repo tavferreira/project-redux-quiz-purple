@@ -41,7 +41,7 @@ export const quiz = createSlice({
         throw new Error('Could not find question! Check to make sure you are passing the question id correctly.')
       }
 
-      if (!answerIndex || question.options[answerIndex] === undefined) {
+      if (question.options[answerIndex] === undefined) {
         throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`)
       }
 
