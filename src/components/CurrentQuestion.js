@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { quiz } from 'reducers/quiz'
+import { Progress } from 'components/Progress'
 
 
 export const CurrentQuestion = () => {
@@ -26,6 +27,7 @@ export const CurrentQuestion = () => {
         <div>
           <button type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>Next question</button>
         </div>
+        <Progress />
       </div>
     )
   )
