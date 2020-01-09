@@ -2,8 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', image: './assets/mockup.jpg', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', image: './assets/mockup.jpg', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 1, questionText: 'To make the color purple, you will need to mix which two primary paint colors?', image: './assets/colors.jpg', options: ['Yellow and Red', 'Blue and Yellow', 'Blue and Green', 'Red and Blue'], correctAnswerIndex: 3 },
+  { id: 2, questionText: 'A popular musical band of the 1970s was called:', image: './assets/band.jpg', options: ['Deep Purple', 'Purple Jones', 'Purple People Eaters', 'Johnson Purple'], correctAnswerIndex: 0 },
+  { id: 3, questionText: 'Which of the following gemstones is known for its purple appearance?', image: './assets/gemstone.jpg', options: ['Opal', 'Emerald', 'Amethyst', 'Onyx'], correctAnswerIndex: 2 },
+  { id: 4, questionText: 'Which Cluedo character is purple?', image: './assets/cluedo.jpg', options: ['The Old lady', 'The Colonel', 'The Professor', 'The Actress'], correctAnswerIndex: 2 },
+  { id: 5, questionText: 'In 2002, a vote was held by the manufacturers of M&Ms to decide on which of three new colours was the most popular. The first was purple, the other two were:', image: './assets/mm.jpg', options: ['Aqua and Pink', 'Lemon and Rust', 'Tangerine and Almond', 'Apple and Grey'], correctAnswerIndex: 0 },
+  { id: 6, questionText: 'Which one of these HEX-codes is purple?', image: './assets/hexcolors.jpg', options: ['#95F252', '#6A0DAD', '#5D5D5D', '#CC3300'], correctAnswerIndex: 1 }
 ]
 
 const initialState = {
