@@ -28,9 +28,9 @@ const Button = styled.button`
   &:hover {
     opacity: 0.7;
   }
-
   &:disabled {
     opacity: ${props => (props.correctOption ? 1 : 0.6)};
+    background: ${props => (props.selected ? '#ff0000' : '')};
   }
 `;
 
@@ -39,29 +39,36 @@ export const Options = () => {
     state => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
   const currentIndex = useSelector(state => state.quiz.currentQuestionIndex);
-  const answer = useSelector(state => state.quiz.answers);
+  const currentAnswer = useSelector(state =>
+    state.quiz.answers.find(a => a.questionId === question.id)
+  );
+  const answers = useSelector(state => state.quiz.answers);
   const dispatch = useDispatch();
 
-  // console.log(answer.length !== currentIndex);
-
-  // question.correctAnswerIndex === index &&
+  if (currentAnswer != undefined) {
+    console.log(currentAnswer.answerIndex);
+  } else {
+    console.log('no value');
+  }
 
   return (
     <StyledOptions>
       {question.options.map((option, index) => {
-        console.log(
-          question.correctAnswerIndex === index &&
-            answer.length !== currentIndex
-        );
         return (
           <Button
             key={index + option}
             correctOption={
               question.correctAnswerIndex === index &&
-              answer.length !== currentIndex
+              answers.length !== currentIndex
             }
             type="button"
-            disabled={answer.length !== currentIndex}
+            disabled={answers.length !== currentIndex}
+            selected={
+              currentAnswer != undefined &&
+              answers.length !== currentIndex &&
+              currentAnswer.answerIndex === index &&
+              question.correctAnswerIndex !== index
+            }
             onClick={() =>
               dispatch(
                 quiz.actions.submitAnswer({
