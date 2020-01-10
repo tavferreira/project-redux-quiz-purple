@@ -22,6 +22,6 @@ const RestartButton = styled.button`
     transition: transform 1s;
 
     &:hover {
-        transform: rotate(90deg);
+        transform: rotate(360deg);
     }
 `
