@@ -25,7 +25,7 @@ export const CurrentQuestion = () => {
         <Image src={question.image} alt="question" />
         <Options />
         <div>
-          <NextButton type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>Next question</NextButton>
+          <NextButton type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>{currentIndex === 5 ? "Finish" : "Next question"}</NextButton>
         </div>
         <Progress />
       </Wrapper>
@@ -74,4 +74,8 @@ const NextButton = styled.button`
   border-radius: 20px;
   margin-top: 15px;
   text-transform: uppercase;
+  &:hover {
+    background: #5d2242;
+    cursor: pointer;
+  }
 `
