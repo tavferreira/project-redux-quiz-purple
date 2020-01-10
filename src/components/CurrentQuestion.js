@@ -1,23 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
-import { quiz } from 'reducers/quiz'
-import { Progress } from 'components/Progress'
-import { Options } from 'components/Options'
-
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { quiz } from 'reducers/quiz';
+import { Progress } from 'components/Progress';
+import { Options } from 'components/Options';
 
 export const CurrentQuestion = () => {
   // const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
-  const questions = useSelector((state) => state.quiz.questions)
-  const currentIndex = useSelector((state) => state.quiz.currentQuestionIndex)
-  const question = questions[currentIndex]
-  const quizOver = useSelector((state) => state.quiz.quizOver)
-  const answer = useSelector((state) => state.quiz.answers)
-  const dispatch = useDispatch()
-
+  const questions = useSelector(state => state.quiz.questions);
+  const currentIndex = useSelector(state => state.quiz.currentQuestionIndex);
+  const question = questions[currentIndex];
+  const quizOver = useSelector(state => state.quiz.quizOver);
+  const answer = useSelector(state => state.quiz.answers);
+  const dispatch = useDispatch();
 
   if (!question) {
-    return <Question>Oh no! I could not find the current question!</Question>
+    return <Question>Oh no! I could not find the current question!</Question>;
   }
 
   return (
@@ -27,13 +25,19 @@ export const CurrentQuestion = () => {
         <Image src={question.image} alt="question" />
         <Options />
         <div>
-          <NextButton type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>{currentIndex === questions.length - 1 ? "Finish" : "Next question"}</NextButton>
+          <NextButton
+            type="button"
+            disabled={answer.length === currentIndex}
+            onClick={() => dispatch(quiz.actions.goToNextQuestion())}
+          >
+            {currentIndex === questions.length - 1 ? 'Finish' : 'Next question'}
+          </NextButton>
         </div>
         <Progress />
       </Wrapper>
     )
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
   box-sizing: border-box;
@@ -46,7 +50,7 @@ const Wrapper = styled.section`
   background: #381427;
   min-height: 100vh;
   padding: 10px;
-`
+`;
 const Question = styled.h1`
   font-family: 'Roboto', sans-serif;
   color: #e5e5e5;
@@ -56,7 +60,7 @@ const Question = styled.h1`
   @media (max-width: 768px) {
     font-size: 18px;
   }
-`
+`;
 const Image = styled.img`
   width: 280px;
   height: 280px;
@@ -67,7 +71,7 @@ const Image = styled.img`
     width: 200px;
     height: 200px;
   }
-`
+`;
 const NextButton = styled.button`
   background: transparent;
   color: #e5e5e5;
@@ -80,4 +84,4 @@ const NextButton = styled.button`
     background: #5d2242;
     cursor: pointer;
   }
-`
+`;
