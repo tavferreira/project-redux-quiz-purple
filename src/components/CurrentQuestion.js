@@ -60,7 +60,6 @@ const QuestionWrapper = styled.div`
   align-items: flex-end;
   @media (min-width: 768px) {
     width: 65%;
-    height: 150px;
   }
 `;
 const Question = styled.h1`
