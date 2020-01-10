@@ -4,16 +4,34 @@ import { quiz } from 'reducers/quiz';
 import { useSelector, useDispatch } from 'react-redux';
 
 const StyledOptions = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 2rem 5rem;
+
+  @media screen and (min-width: 869px) {
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button`
-  background-color: ${props => (props.correctOption ? '#ff0000' : '#c4a748')};
+  background-color: ${props => (props.correctOption ? 'green' : '#c4a748')};
   color: #e5e5e5;
-  border: 1px solid red;
-  padding: 5px 0;
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 10px;
   margin: 5px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: ${props => (props.correctOption ? 1 : 0.6)};
+  }
 `;
 
 export const Options = () => {
