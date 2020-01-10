@@ -17,7 +17,7 @@ export const CurrentQuestion = () => {
 
 
   if (!question) {
-    return <h1>Oh no! I could not find the current question!</h1>
+    return <Question>Oh no! I could not find the current question!</Question>
   }
 
   return (
