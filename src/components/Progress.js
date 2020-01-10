@@ -17,7 +17,7 @@ export const Progress = () => {
 
 const ProgressBar = styled.div`
   height: 15px;
-  width: 65px;
+  width: 15%;
   background-color: ${props => (props.completed ? "#248232" : "#AFD1B4")};
   border: #e5e5e5 1px solid;
 
@@ -29,9 +29,16 @@ const ProgressBar = styled.div`
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
+  margin-top: 5rem;
+
 `;
 
 const ProgressWrapper = styled.section`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  @media (min-width: 768px){
+    width:60%;
+  }
 `;
