@@ -21,7 +21,7 @@ export const CurrentQuestion = () => {
     !quizOver && (
       <div>
         <h1>Question: {question.questionText}</h1>
-        <img src={question.image} />
+        <img src={question.image} alt="question" />
         <Options />
         <div>
           <button type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>Next question</button>
