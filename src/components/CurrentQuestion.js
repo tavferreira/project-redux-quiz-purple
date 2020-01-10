@@ -54,31 +54,29 @@ const Wrapper = styled.section`
 const Question = styled.h1`
   font-family: 'Roboto', sans-serif;
   color: #e5e5e5;
-  font-size: 26px;
+  font-size: 18px;
   margin-top: 0px;
   text-align: center;
-  @media (max-width: 768px) {
-    font-size: 18px;
+  @media (min-width: 768px) {
+    font-size: 26px;
   }
 `;
 const Image = styled.img`
-  width: 280px;
-  height: 280px;
-  margin-bottom: 15px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 5px solid #e5e5e5;
-  @media (max-width: 768px) {
-    width: 200px;
-    height: 200px;
+  @media (min-width: 768px) {
+    width: 250px;
+    height: 250px;
   }
 `;
 const NextButton = styled.button`
   background: transparent;
   color: #e5e5e5;
-  border: px solid #e5e5e5;
+  border: 3px solid #e5e5e5;
   padding: 15px;
   border-radius: 20px;
-  margin-top: 15px;
   text-transform: uppercase;
   &:hover {
     background: #5d2242;
