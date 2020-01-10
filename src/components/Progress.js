@@ -9,7 +9,7 @@ export const Progress = () => {
   return (
     <ProgressWrapper>
       {questions.map(question => (
-        <ProgressBar completed={question.id <= currentIndex} />
+        <ProgressBar completed={question.id <= currentIndex + 1} />
       ))}
     </ProgressWrapper>
   );
