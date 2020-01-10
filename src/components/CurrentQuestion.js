@@ -7,8 +7,10 @@ import { Options } from 'components/Options'
 
 
 export const CurrentQuestion = () => {
-  const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
+  // const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
+  const questions = useSelector((state) => state.quiz.questions)
   const currentIndex = useSelector((state) => state.quiz.currentQuestionIndex)
+  const question = questions[currentIndex]
   const quizOver = useSelector((state) => state.quiz.quizOver)
   const answer = useSelector((state) => state.quiz.answers)
   const dispatch = useDispatch()
@@ -25,7 +27,7 @@ export const CurrentQuestion = () => {
         <Image src={question.image} alt="question" />
         <Options />
         <div>
-          <NextButton type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>{currentIndex === 5 ? "Finish" : "Next question"}</NextButton>
+          <NextButton type="button" disabled={answer.length === currentIndex} onClick={() => (dispatch(quiz.actions.goToNextQuestion()))}>{currentIndex === questions.length - 1 ? "Finish" : "Next question"}</NextButton>
         </div>
         <Progress />
       </Wrapper>
