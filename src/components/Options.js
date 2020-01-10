@@ -1,38 +1,7 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { quiz } from 'reducers/quiz';
-import { useSelector, useDispatch } from 'react-redux';
-
-const StyledOptions = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  margin: 2rem 5rem;
-
-  @media screen and (min-width: 869px) {
-    width: 60%;
-    flex-direction: row;
-    justify-content: center;
-  }
-`;
-
-const Button = styled.button`
-  background-color: ${props => (props.correctOption ? 'green' : '#c4a748')};
-  color: #e5e5e5;
-  border-style: none;
-  border-radius: 3px;
-  font-weight: bold;
-  padding: 10px;
-  margin: 5px;
-
-  &:hover {
-    opacity: 0.7;
-  }
-  &:disabled {
-    opacity: ${props => (props.correctOption ? 1 : 0.6)};
-    background: ${props => (props.selected ? '#ff0000' : '')};
-  }
-`;
+import React from "react";
+import styled from "styled-components/macro";
+import { quiz } from "reducers/quiz";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Options = () => {
   const question = useSelector(
@@ -44,12 +13,6 @@ export const Options = () => {
   );
   const answers = useSelector(state => state.quiz.answers);
   const dispatch = useDispatch();
-
-  if (currentAnswer != undefined) {
-    console.log(currentAnswer.answerIndex);
-  } else {
-    console.log('no value');
-  }
 
   return (
     <StyledOptions>
@@ -64,7 +27,7 @@ export const Options = () => {
             type="button"
             disabled={answers.length !== currentIndex}
             selected={
-              currentAnswer != undefined &&
+              currentAnswer !== undefined &&
               answers.length !== currentIndex &&
               currentAnswer.answerIndex === index &&
               question.correctAnswerIndex !== index
@@ -85,3 +48,34 @@ export const Options = () => {
     </StyledOptions>
   );
 };
+
+const StyledOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 2rem 5rem;
+
+  @media screen and (min-width: 869px) {
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
+
+const Button = styled.button`
+  background-color: ${props => (props.correctOption ? "green" : "#c4a748")};
+  color: #e5e5e5;
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 5px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+  &:disabled {
+    opacity: ${props => (props.correctOption ? 1 : 0.6)};
+    background: ${props => (props.selected ? "#ff0000" : "")};
+  }
+`;
