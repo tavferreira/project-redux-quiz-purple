@@ -29,8 +29,7 @@ const ProgressBar = styled.div`
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-  margin-top: 5rem;
-
+  margin-top: 2rem;
 `;
 
 const ProgressWrapper = styled.section`
@@ -38,7 +37,7 @@ const ProgressWrapper = styled.section`
   flex-direction: row;
   justify-content: center;
   width: 80%;
-  @media (min-width: 768px){
-    width:60%;
+  @media (min-width: 768px) {
+    width: 60%;
   }
 `;
