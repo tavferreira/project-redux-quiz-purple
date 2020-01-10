@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { quiz } from 'reducers/quiz';
-import { Progress } from 'components/Progress';
-import { Options } from 'components/Options';
+import React from "react";
+import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { quiz } from "reducers/quiz";
+import { Progress } from "components/Progress";
+import { Options } from "components/Options";
 
 export const CurrentQuestion = () => {
   // const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
@@ -21,7 +21,9 @@ export const CurrentQuestion = () => {
   return (
     !quizOver && (
       <Wrapper>
-        <Question>{question.questionText}</Question>
+        <QuestionWrapper>
+          <Question>{question.questionText}</Question>
+        </QuestionWrapper>
         <Image src={question.image} alt="question" />
         <Options />
         <div>
@@ -30,7 +32,7 @@ export const CurrentQuestion = () => {
             disabled={answer.length === currentIndex}
             onClick={() => dispatch(quiz.actions.goToNextQuestion())}
           >
-            {currentIndex === questions.length - 1 ? 'Finish' : 'Next question'}
+            {currentIndex === questions.length - 1 ? "Finish" : "Next question"}
           </NextButton>
         </div>
         <Progress />
@@ -51,14 +53,23 @@ const Wrapper = styled.section`
   min-height: 100vh;
   padding: 10px;
 `;
+const QuestionWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  @media (min-width: 768px) {
+    width: 65%;
+    height: 150px;
+  }
+`;
 const Question = styled.h1`
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #e5e5e5;
   font-size: 18px;
-  margin-top: 0px;
   text-align: center;
   @media (min-width: 768px) {
-    font-size: 26px;
+    font-size: 22px;
   }
 `;
 const Image = styled.img`
